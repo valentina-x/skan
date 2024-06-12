@@ -13,18 +13,45 @@ import { selectIsAuthenticated } from "@/lib/features/selectors/authSelectors";
 import Loader from "@/components/Loader/Loader";
 
 export default function Home() {
+  const [mainLoading, setMainLoading] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   useEffect(() => {
     const handleLoad = () => {
-      setLoading(true);
+      setMainLoading(false);
     };
 
-    window.addEventListener("load", handleLoad);
+    const images = document.querySelectorAll("img");
+    let loadedImages = 0;
+    images.forEach((img) => {
+      if (img.complete) {
+        loadedImages++;
+      } else {
+        img.addEventListener("load", () => {
+          loadedImages++;
+          if (loadedImages === images.length) {
+            handleLoad();
+          }
+        });
+        img.addEventListener("error", () => {
+          loadedImages++;
+          if (loadedImages === images.length) {
+            handleLoad();
+          }
+        });
+      }
+    });
+
+    if (loadedImages === images.length) {
+      handleLoad();
+    }
 
     return () => {
-      window.removeEventListener("load", handleLoad);
+      images.forEach((img) => {
+        img.removeEventListener("load", handleLoad);
+        img.removeEventListener("error", handleLoad);
+      });
     };
   }, []);
 
@@ -37,7 +64,7 @@ export default function Home() {
           content="СКАН - сервис по поиску публикаций о компании по его ИНН"
         />
       </Head>
-      {loading ? (
+      {mainLoading ? (
         <Loader text="Загрузка приложения" size="large" />
       ) : (
         <Layout>
