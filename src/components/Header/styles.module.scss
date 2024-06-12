@@ -279,9 +279,14 @@
 
 .infopanel {
 	display: flex;
+
+	@media screen and (max-width: 480px) {
+		margin: 0 0 0 auto;
+	}
 }
 
 .user {
+	width: max-content;
 	display: flex;
 	align-items: center;
 	margin: 0 0 0 auto;

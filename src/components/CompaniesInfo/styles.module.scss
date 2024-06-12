@@ -39,10 +39,14 @@
 		}
 	}
 
+	@media screen and (max-width: 1080px) {
+		margin-right: remHandler(10);
+	}
+
 	@media screen and (max-width: 480px) {
 		width: remHandler(132);
 		padding: remHandler(5) remHandler(10) remHandler(8);
-		margin-left: remHandler(40);
+		margin-right: 0;
 
 		&_row {
 			flex-direction: column;
