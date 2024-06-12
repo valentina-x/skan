@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import styles from "../styles/authorization.module.scss";
-import Characters_icon from "../../public/images/authorization/Characters.svg";
+import Characters_icon from "../../public/images/authorization/characters.svg";
 import LoginForm from "@/components/Forms/LoginForm/LoginForm";
 
 export default function authorization() {
