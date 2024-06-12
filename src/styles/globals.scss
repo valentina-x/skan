@@ -1,0 +1,25 @@
+@import "./variables";
+@import "./_fonts";
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $i-r, Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  letter-spacing: 0.01em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

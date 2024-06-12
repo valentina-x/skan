@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+@import "../../styles/_mixins";
+
+.container {
+	@include wrapper;
+	margin: remHandler(116) auto remHandler(76);
+	flex: auto;
+
+	@media screen and (max-width: 1080px) {
+		margin-top: remHandler(113);
+	}
+
+	@media screen and (max-width:480px) {
+		margin-top: remHandler(100);
+		margin-bottom: remHandler(43);
+	}
+}
+
+.main {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}

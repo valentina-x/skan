@@ -1,0 +1,67 @@
+@import "../../styles/variables";
+@import "../../styles/_mixins";
+
+.loader {
+	width: 100%;
+	max-width: remHandler(1276);
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	&__text {
+		width: remHandler(550);
+		margin-top: remHandler(44);
+	}
+
+	&__title {
+		@include title;
+		margin: 0 0 remHandler(36) 0;
+	}
+
+	& p {
+		width: 100%;
+		max-width: remHandler(447);
+		margin: 0;
+		font-size: remHandler(20);
+	}
+
+	&__image {
+		width: remHandler(552);
+		height: remHandler(369);
+		object-fit: contain;
+		display: block;
+	}
+
+	@media screen and (max-width: 1080px) {
+		flex-direction: column;
+
+		&__text {
+			width: 100%;
+			margin-bottom: remHandler(50);
+		}
+
+		&__image {
+			width: 90%;
+			height: auto;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		&__text {
+			margin-top: 0;
+		}
+
+		&__title {
+			font-size: remHandler(26);
+			margin-bottom: remHandler(21);
+		}
+
+		& p {
+			font-size: remHandler(18);
+		}
+
+		&__image {
+			width: 100%;
+		}
+	}
+}

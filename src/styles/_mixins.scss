@@ -1,0 +1,28 @@
+@import "../styles/variables";
+
+@mixin title() {
+	text-transform: uppercase;
+	font-family: $f-bl;
+	font-size: remHandler(45);
+	letter-spacing: 0.01em;
+
+	@media screen and (max-width: 480px) {
+		font-size: remHandler(28);
+	}
+}
+
+@mixin wrapper() {
+	width: 89%;
+	max-width: remHandler(1320);
+}
+
+@mixin formouter() {
+	box-shadow: 0 0 remHandler(20) rgba(0, 0, 0, 0.2);
+	border-radius: remHandler(10);
+}
+
+@mixin inputouter() {
+	border: 1px solid #C7C7C7;
+	box-shadow: 0 0 remHandler(20) rgba(0, 0, 0, 0.05);
+	border-radius: remHandler(5);
+}

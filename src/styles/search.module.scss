@@ -1,0 +1,99 @@
+@import "../styles/variables";
+@import "../styles/_mixins";
+
+.content {
+	width: 100%;
+	max-width: remHandler(1320);
+	margin: 0 auto;
+	position: relative;
+
+	&__wrapper {
+		width: remHandler(872);
+	}
+
+	&__title {
+		@include title;
+		margin: 0;
+	}
+
+	&__description {
+		margin: remHandler(24) 0 remHandler(47) 0;
+		font-size: remHandler(20);
+	}
+
+	&__image {
+		object-fit: contain;
+		display: block;
+		position: absolute;
+		z-index: 1;
+
+		&_v1 {
+			width: remHandler(91);
+			height: remHandler(111);
+			right: remHandler(348);
+			top: remHandler(66);
+		}
+
+		&_v2 {
+			width: remHandler(140);
+			height: remHandler(68);
+			right: remHandler(42);
+			top: remHandler(81);
+		}
+
+		&_v3 {
+			width: remHandler(393);
+			height: remHandler(470);
+			right: remHandler(-40);
+			bottom: 0;
+		}
+	}
+
+	@media screen and (max-width: 1080px) {
+		max-width: 100%;
+
+		&__wrapper {
+			width: 100%;
+		}
+
+		&__title {
+			width: remHandler(500);
+		}
+
+		&__image {
+			&_v1 {
+				right: remHandler(20);
+				top: remHandler(66);
+			}
+
+			&_v2 {
+				display: none;
+			}
+
+			&_v3 {
+				position: static;
+				margin: 0 remHandler(-60) 0 auto;
+			}
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		&__title {
+			width: 100%;
+		}
+
+		&__description {
+			width: remHandler(297);
+			font-size: remHandler(18);
+		}
+
+		&__image {
+			&_v1 {
+				width: remHandler(58);
+				height: remHandler(71);
+				right: 0;
+				top: remHandler(97);
+			}
+		}
+	}
+}

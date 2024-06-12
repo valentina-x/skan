@@ -1,0 +1,127 @@
+@import "../styles/variables";
+@import "../styles/_mixins";
+
+.content {
+	width: 100%;
+	display: flex;
+	padding-top: remHandler(69);
+
+	&__info {
+		width: remHandler(743);
+	}
+
+	&__title {
+		font-size: remHandler(60);
+		font-family: $f-bl;
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	&__text {
+		display: block;
+		width: 100%;
+		max-width: remHandler(534);
+		font-size: remHandler(20);
+		margin: remHandler(20) 0 remHandler(70);
+	}
+
+	&__link {
+		display: block;
+		max-width: remHandler(355);
+		text-decoration: none;
+	}
+
+	&__image {
+		width: remHandler(575);
+		height: auto;
+
+		& img {
+			width: 100%;
+			height: auto;
+			display: block;
+			object-fit: contain;
+		}
+	}
+
+	@media screen and (max-width: 1080px) {
+		padding-top: 0;
+
+		&__title {
+			font-size: remHandler(42);
+		}
+
+		&__image {
+			margin-top: 0;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		flex-direction: column;
+
+		&__info {
+			width: 100%;
+		}
+
+		&__title {
+			font-size: remHandler(28);
+		}
+
+		&__text {
+			max-width: remHandler(320);
+			font-size: remHandler(18);
+			margin: remHandler(19) 0 remHandler(32);
+		}
+
+		&__image {
+			width: 100%;
+		}
+	}
+}
+
+.advantages {
+	width: 100%;
+	margin: remHandler(109) 0 remHandler(107);
+
+	&__title {
+		@include title;
+		margin-top: 0;
+		margin-bottom: remHandler(70);
+	}
+
+	&__image {
+		width: remHandler(1307);
+		height: remHandler(575);
+		display: block;
+
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	@media screen and (max-width: 1080px) {
+		margin: remHandler(50) 0 remHandler(80);
+
+		&__image {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		margin-top: vw(30);
+
+		&__title {
+			width: remHandler(274);
+			margin-bottom: remHandler(24);
+		}
+
+		&__image {
+			width: remHandler(390);
+			height: remHandler(420);
+			position: relative;
+			right: remHandler(10)
+		}
+	}
+}

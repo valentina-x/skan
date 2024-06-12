@@ -1,0 +1,32 @@
+@import "../../styles/variables";
+@import "../../styles/_mixins";
+
+
+.documents {
+	width: 100%;
+	margin: 0 0 remHandler(107) 0;
+
+	&__title {
+		@include title;
+		font-size: remHandler(30);
+		margin: 0 0 remHandler(58) 0;
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-auto-columns: 1fr;
+		grid-auto-rows: auto;
+		grid-template-columns: 1fr 1fr;
+		gap: remHandler(38);
+	}
+
+	&>button {
+		margin: remHandler(38) auto 0;
+	}
+
+	@media screen and (max-width: 1080px) {
+		&__wrapper {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: remHandler(59);
+	color: $white;
+	background-color: $blue;
+	font-size: remHandler(22);
+	font-family: $i-m;
+	margin-top: remHandler(16);
+	border: remHandler(1) solid;
+	text-decoration: none;
+	position: relative;
+	border-radius: remHandler(5);
+	transition: all 0.6s;
+
+	& img {
+		filter: invert(1) brightness(5);
+	}
+
+	&.grey {
+		background-color: $grey;
+	}
+
+	&.loading {
+		pointer-events: none;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background-color: darken($blue, 10%);
+	}
+
+	@media screen and (max-width: 480px) {
+		height: remHandler(59);
+		font-size: remHandler(18);
+	}
+}
+
+.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
