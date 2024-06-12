@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import formatDate, {
   formatNumberWithSpacesAndSuffixForDocument,
   parseXmlContent,
-} from "@/pages/lib/utils/utils";
+} from "@/lib/utils/utils";
 
 export interface IDocument {
   ok: {

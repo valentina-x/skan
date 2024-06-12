@@ -8,10 +8,10 @@ import GoogleSVG from "../../../../public/images/forms/google.svg";
 import FacebookSVG from "../../../../public/images/forms/facebook.svg";
 import YandexSVG from "../../../../public/images/forms/yandex.svg";
 import LockSVG from "../../../../public/images/forms/lock.svg";
-import Auth, { AuthProps } from "../../../pages/api/auth";
-import { useAppDispatch } from "@/pages/lib/hooks/hooks";
-import { login } from "@/pages/lib/features/authSlice";
 import { NextRouter, useRouter } from "next/router";
+import { useAppDispatch } from "@/lib/hooks/hooks";
+import auth, { AuthProps } from "@/api/auth";
+import { login } from "@/lib/features/authSlice";
 
 const LoginForm: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -34,7 +34,7 @@ const LoginForm: React.FC = () => {
   const onSubmit = async (data: AuthProps) => {
     try {
       setLoading(true);
-      const responseDataLogin = await Auth(data);
+      const responseDataLogin = await auth(data);
       dispatch(login(responseDataLogin));
       if (router.pathname === "/authorization") {
         router.push("/");

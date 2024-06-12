@@ -9,8 +9,8 @@ import ContentIMG1 from "../../public/images/index_page/content-img1.svg";
 import Advans_IMG from "../../public/images/index_page/advantages.svg";
 import Slider from "@/components/Slider/Slider";
 import Tariffs from "@/components/Tariffs/Tariffs";
-import { useAppSelector } from "./lib/hooks/hooks";
-import { selectIsAuthenticated } from "./lib/features/selectors/authSelectors";
+import { useAppSelector } from "@/lib/hooks/hooks";
+import { selectIsAuthenticated } from "@/lib/features/selectors/authSelectors";
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);

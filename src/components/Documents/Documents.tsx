@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Document, { IDocument } from "@/components/Document/Document";
-import { useAppSelector } from "@/pages/lib/hooks/hooks";
-import { selectDocumentsIDs } from "@/pages/lib/features/selectors/documentsSelectors";
-import getDocuments from "@/pages/api/getDocuments";
-import { selectAccessToken } from "@/pages/lib/features/selectors/authSelectors";
 import Button from "../Button/Button";
 import styles from "./styles.module.scss";
 import LoaderSearch from "../LoaderSearch/LoaderSearch";
+import { useAppSelector } from "@/lib/hooks/hooks";
+import { selectAccessToken } from "@/lib/features/selectors/authSelectors";
+import { selectDocumentsIDs } from "@/lib/features/selectors/documentsSelectors";
+import getDocuments from "@/api/getDocuments";
 
 const Documents: React.FC = () => {
   const accessToken = useAppSelector(selectAccessToken);
@@ -45,10 +45,6 @@ const Documents: React.FC = () => {
     }
   }, [loadMoreDocuments, countDocuments]);
 
-  const emptyContentMarkupString =
-    '<?xml version="1.0" encoding="utf-8"?><scandoc />';
-  const contentMarkupMinLength = 200;
-
   if (documents.length === 0) {
     return <LoaderSearch />;
   }
@@ -58,15 +54,9 @@ const Documents: React.FC = () => {
       <section className={styles.documents}>
         <h2 className={styles.documents__title}>Список документов</h2>
         <div className={styles.documents__wrapper}>
-          {documents
-            .filter(
-              (document: IDocument) =>
-                document.ok.content.markup != emptyContentMarkupString &&
-                document.ok.content.markup.length > contentMarkupMinLength
-            )
-            .map((document, index) => (
-              <Document key={index} ok={document.ok} />
-            ))}
+          {documents.map((document, index) => (
+            <Document key={index} ok={document.ok} />
+          ))}
         </div>
         {documents.length < documentsIDs.ids.length && (
           <Button

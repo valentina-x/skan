@@ -1,9 +1,9 @@
 import "@/styles/globals.scss";
 import "normalize.css";
 import { Provider } from "react-redux";
-import store, { persistor } from "./lib/store";
 import { PersistGate } from "redux-persist/integration/react";
 import Head from "next/head";
+import store, { persistor } from "@/lib/store";
 
 export default function App({
   Component,

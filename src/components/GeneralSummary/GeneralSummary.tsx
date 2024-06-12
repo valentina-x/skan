@@ -7,10 +7,10 @@ import "swiper/css/navigation";
 import styles from "./styles.module.scss";
 import arrowPrev from "../../../public/images/icons/arrow-prev-dark.svg";
 import arrowNext from "../../../public/images/icons/arrow-next-dark.svg";
-import { useAppSelector } from "@/pages/lib/hooks/hooks";
-import { selectHistogramInfo } from "@/pages/lib/features/selectors/histogramSelector";
-import { formatHistogramData } from "@/pages/lib/utils/utils";
 import Loader from "../Loader/Loader";
+import { useAppSelector } from "@/lib/hooks/hooks";
+import { formatHistogramData } from "@/lib/utils/utils";
+import { selectHistogramInfo } from "@/lib/features/selectors/histogramSelector";
 
 type TSlides = {
   date: string;

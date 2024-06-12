@@ -3,11 +3,11 @@ import Head from "next/head";
 import React from "react";
 import styles from "../styles/results.module.scss";
 import GeneralSummary from "@/components/GeneralSummary/GeneralSummary";
-import { useAppSelector } from "./lib/hooks/hooks";
-import { formatNumberWithSpacesAndSuffix } from "./lib/utils/utils";
 import Documents from "@/components/Documents/Documents";
-import { selectDocumentsIDs } from "./lib/features/selectors/documentsSelectors";
 import Link from "next/link";
+import { selectDocumentsIDs } from "@/lib/features/selectors/documentsSelectors";
+import { useAppSelector } from "@/lib/hooks/hooks";
+import { formatNumberWithSpacesAndSuffix } from "@/lib/utils/utils";
 
 export default function Results() {
   const documentsIDs = useAppSelector(selectDocumentsIDs);

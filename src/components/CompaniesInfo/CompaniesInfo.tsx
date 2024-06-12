@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import Loader from "../Loader/Loader";
-import { useAppDispatch, useAppSelector } from "@/pages/lib/hooks/hooks";
-import { selectAccessToken } from "@/pages/lib/features/selectors/authSelectors";
-import companiesInfo from "@/pages/api/companiesinfo";
-import { setComaniesInfo } from "@/pages/lib/features/companiesInfoSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
+import { selectAccessToken } from "@/lib/features/selectors/authSelectors";
+import companiesInfo from "@/api/companiesinfo";
+import { setComaniesInfo } from "@/lib/features/companiesInfoSlice";
 import {
   selectCompanyLimit,
   selectUsedCompanyCount,
-} from "@/pages/lib/features/selectors/companiesInfoSelectors";
+} from "@/lib/features/selectors/companiesInfoSelectors";
 
 const CompaniesInfo = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);

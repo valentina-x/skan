@@ -6,8 +6,8 @@ import Tariff_pro from "../../../public/images/tariffs/pro-icon.svg";
 import Tariff_business from "../../../public/images/tariffs/business-icon.svg";
 import OK_icon from "../../../public/images/icons/ok.svg";
 import Button from "../Button/Button";
-import { useAppSelector } from "@/pages/lib/hooks/hooks";
-import { selectIsAuthenticated } from "@/pages/lib/features/selectors/authSelectors";
+import { useAppSelector } from "@/lib/hooks/hooks";
+import { selectIsAuthenticated } from "@/lib/features/selectors/authSelectors";
 
 const Tariffs = () => {
   const isAuthenticated = useAppSelector(selectIsAuthenticated);

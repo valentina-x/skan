@@ -6,12 +6,12 @@ import { useRouter } from "next/router";
 import Logo_SVG from "../../../public/images/logo.svg";
 import User_PNG from "../../../public/images/user_avatar.png";
 import styles from "./styles.module.scss";
-import { useAppDispatch, useAppSelector } from "@/pages/lib/hooks/hooks";
-import { selectIsAuthenticated } from "@/pages/lib/features/selectors/authSelectors";
-import { checkToken, logout } from "@/pages/lib/features/authSlice";
 import CompaniesInfo from "../CompaniesInfo/CompaniesInfo";
-import { resetAndCleanStore } from "@/pages/lib/rootReducer";
 import Button from "../Button/Button";
+import { resetAndCleanStore } from "@/lib/rootReducer";
+import { checkToken, logout } from "@/lib/features/authSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
+import { selectIsAuthenticated } from "@/lib/features/selectors/authSelectors";
 
 export default function Header() {
   const [loading, setLoading] = useState<boolean>(false);
